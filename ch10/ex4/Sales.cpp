@@ -12,6 +12,7 @@ namespace SALES {
 		double sum = 0.0;		
 		double maximum = -INF;
 		double minimum= INF;
+		m_n = n;
 		int mn = min(n, QUARTERS);
 		for (int i = 0; i < mn; i++)
 		{
@@ -22,27 +23,35 @@ namespace SALES {
 		}			
 			
 
-		this->m_average = sum/n;
-		this->m_maximum = maximum;
-		this->m_minimum = minimum;
+		m_average = sum/n;
+		m_maximum = maximum;
+		m_minimum = minimum;
 	};
 
-    void Sales::setSales() {
-		cout << "Enter array of numbers: " << endl;
-		for (int i = 0; i < QUARTERS; i++)
+    void Sales::setSales(int num) {
+		if (num > 4) cout << "INVALID" << endl;
+		else
 		{
-			cin >> m_sales[i];
+			cout << "Enter numbers: " << endl;
+			double temp_arr[QUARTERS];
+			for (int i = 0; i < num; i++)
+			{
+				cin >> temp_arr[i];
+			}
+			Sales tmp(temp_arr, num);
+			*this = tmp;
 		}
 	};
 
 
    void Sales::show() {
 		cout << "Sales:" << endl;
-		for (int i = 0; i < QUARTERS; i++) {
+		int mn = min(m_n, QUARTERS);
+		for (int i = 0; i < mn; i++) {
 			cout << m_sales[i] << " ";
 		}
 		cout << endl;
-		cout << "Average:" << m_average << endl<< "Max:" << m_maximum << endl<< "Min:" << m_minimum << endl;
+		cout << "Average: " << m_average << endl<< "Max: " << m_maximum << endl<< "Min: " << m_minimum << endl;
 	}
 
 }
