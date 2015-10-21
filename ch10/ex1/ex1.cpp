@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 
-	BankAccount b("Ahmed Mpstafa", "222", 9999.9999);
+	BankAccount b("Ahmed Mostafa", "222", 9999.9999);
 	b.display_info();
 	b.deposite(100);
 	b.withdraw(50);
