@@ -6,9 +6,10 @@ namespace SALES {
 		double m_average;
 		double m_maximum;
 		double m_minimum;
+		int m_n;
 	public:
 		Sales(double arr[], int n);
-		void setSales();
+		void setSales(int num);
 		void show();
 	};
 }
